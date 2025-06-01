@@ -1,0 +1,6 @@
+pyrofork>=2.3.61
+pillow>=11.2.1
+python-dotenv>=1.0.0
+requests>=2.32.3
+psutil>=5.9.0
+TgCrypto
