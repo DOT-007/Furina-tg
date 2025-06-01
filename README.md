@@ -53,6 +53,6 @@ On first run, you'll be prompted for your phone number and OTP.
 
 <div align="center">
 
-\$\frac{\text{Made with } \heartsuit \text{ by IRON-M4N}}{\text{2023 - 2025}}\$
+\$\frac{\text{Made with } \heartsuit \text{ by IRON-M4N}}{\text{2025 - 6969}}\$
 
 </div>
