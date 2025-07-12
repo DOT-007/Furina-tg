@@ -1,16 +1,17 @@
-import os
 import time
-from typing import Dict, Any, Optional, Union
+
 
 class ReplyMessage:
+
     def __init__(self, reply_msg):
         self.id = reply_msg.id
         self.text = reply_msg.text or reply_msg.caption or ""
-        self.sender = reply_msg.from_user
+        self.sender = reply_msg.from_user or reply_msg.sender_chat
         self._raw = reply_msg
         self.media = None
         self.media_type = None
-
+        self.forward_origin = getattr(reply_msg, 'forward_origin', None)
+        self.is_forwarded = self.forward_origin is not None
         if reply_msg.photo:
             self.media = reply_msg.photo
             self.media_type = "photo"
@@ -47,6 +48,7 @@ class ReplyMessage:
 
 
 class Message:
+
     def __init__(self, msg, client):
         self._msg = msg
         self._client = client
@@ -84,6 +86,9 @@ class Message:
         elif msg.animation:
             self.media = msg.animation
             self.media_type = "animation"
+
+        self.forward_origin = getattr(msg, 'forward_origin', None)
+        self.is_forwarded = self.forward_origin is not None
 
         self.reply_to_message = None
         if msg.reply_to_message:
@@ -141,9 +146,12 @@ class Message:
     def get_quoted_text(self):
         return self.reply_to_message.text if self.reply_to_message else None
 
-    async def progress_callback(
-        self, current, total, message, start_time=None, info=""
-    ):
+    async def progress_callback(self,
+                                current,
+                                total,
+                                message,
+                                start_time=None,
+                                info=""):
         if not start_time:
             start_time = time.time()
 
