@@ -32,7 +32,12 @@ PREFIX=!
 MODE=private
 ```
 
-#### How to get your `API_ID` and `API_HASH`
+
+[![Deploy to Heroku](https://img.shields.io/badge/⚡_Deploy_to_Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white)](https://heroku.com/deploy?template=https://github.com/DOT-007/Furina-tg)
+
+
+
+# How to get your `API_ID` and `API_HASH`
 
 1. Visit [https://my.telegram.org](https://my.telegram.org).
 2. Log in using your Telegram phone number.

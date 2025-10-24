@@ -8,6 +8,7 @@ VERSION = "1.0.0"
 API_ID = int(os.environ.get("API_ID", "0"))
 API_HASH = os.environ.get("API_HASH")
 PREFIX = os.environ.get("PREFIX", "!")
+SESSION = os.environ.get("SESSION")
 MODE = os.environ.get("MODE", "private").lower()
 
 if not API_ID:

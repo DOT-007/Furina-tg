@@ -8,7 +8,7 @@ from datetime import datetime
 from functools import lru_cache
 from pyrogram import Client, filters
 from typing import Dict, Any, List, Optional, Union, Callable
-from config import API_ID, API_HASH, PREFIX, VERSION, MODE, is_private_mode
+from config import SESSION,API_ID, API_HASH, PREFIX, VERSION, MODE, is_private_mode
 from lib.furina import plugins, register_middleware, run_middleware
 from lib.message import Message, ReplyMessage
 
@@ -35,9 +35,7 @@ class _Client:
             "Furina",
             api_id=API_ID,
             api_hash=API_HASH,
-            device_model="Furina",
-            app_version="IRON-M4N 6.9",
-            system_version="HydroOs 6.9.0",
+            session_string=SESSION,
         )
 
         self.app.on_message(filters.text | filters.media)(self.cmd_handler)
