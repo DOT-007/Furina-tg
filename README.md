@@ -30,6 +30,7 @@ API_ID=12345
 API_HASH=abcdef1234567890abcdef1234567890
 PREFIX=!
 MODE=private
+SESSION=session_string
 ```
 
 
